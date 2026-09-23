@@ -55,5 +55,9 @@ public class Principal {
 
         System.out.println("o funcionario(a) mais velho(a) é o(a) "+
                 funcionarioMaisVelho.get().getNome()+", com "+idade+" anos.");
+
+        //imprimindo lista de funcionarios em ordem alfabetica
+        System.out.println("Funcionários em ordem alfabética:");
+        listaFuncionarios.stream().sorted(Comparator.comparing(Pessoa::getNome)).forEach(System.out::println);
     }
 }
