@@ -24,7 +24,7 @@ public class Principal {
         //remove o funcionario 'joao'
         listaFuncionarios.removeIf(f -> f.getNome().equals("Joao"));
 
-        //imprimindo os funcionarios seguindo as diretrizes do projeto( implementação no metodo 'toString()' de Funcionario
+        //imprimindo os funcionarios seguindo as diretrizes do projeto (implementação no metodo 'toString()' de Funcionario)
         listaFuncionarios.forEach(System.out::println);
 
         //aumento de 10% no salario de todos
