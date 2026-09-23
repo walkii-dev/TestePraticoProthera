@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.*;
@@ -73,5 +74,11 @@ public class Principal {
         DecimalFormat df = new DecimalFormat("#,##0.00");
 
         System.out.println("Valor total dos salários da empresa é de: R$ "+ df.format(valorTotal));
+
+        // imprimindo quantos salarios cada funcionario ganha
+        listaFuncionarios.forEach(f ->
+                System.out.println("o funcionario "+ f.getNome()+ " ganha em torno de "+
+                        f.getSalario().divide(new BigDecimal("1212.00"),1,RoundingMode.UP)
+                        +" salario(s) minimo(s)."));
     }
 }
