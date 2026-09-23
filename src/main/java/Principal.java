@@ -24,5 +24,13 @@ public class Principal {
 
         //imprimindo os funcionarios seguindo as diretrizes do projeto( implementação no metodo 'toString()' de Funcionario
         listaFuncionarios.forEach(System.out::println);
+
+        //aumento de 10% no salario de todos
+        listaFuncionarios.forEach(f -> f.setSalario(
+                f.getSalario().add(f.getSalario().multiply(new BigDecimal(0.1)))));
+
+        System.out.println("Lista de Funcionários pós-reajuste:");
+        listaFuncionarios.forEach(System.out::println);
+
     }
 }
