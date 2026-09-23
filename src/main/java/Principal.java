@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -58,6 +59,19 @@ public class Principal {
 
         //imprimindo lista de funcionarios em ordem alfabetica
         System.out.println("Funcionários em ordem alfabética:");
-        listaFuncionarios.stream().sorted(Comparator.comparing(Pessoa::getNome)).forEach(System.out::println);
+        listaFuncionarios.stream()
+                .sorted(Comparator.comparing(Pessoa::getNome))
+                .forEach(System.out::println);
+
+        // imprimindo total dos salarios da empresa
+        BigDecimal valorTotal = BigDecimal.valueOf(listaFuncionarios
+                .stream()
+                .mapToDouble(f ->
+                        f.getSalario().doubleValue())
+                .sum());
+
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+
+        System.out.println("Valor total dos salários da empresa é de: R$ "+ df.format(valorTotal));
     }
 }
