@@ -18,5 +18,8 @@ public class Principal {
         listaFuncionarios.add(new Funcionario("Laura", LocalDate.parse("08-07-1994"), BigDecimal.valueOf(3017.45), "Gerente"));
         listaFuncionarios.add(new Funcionario("Heloisa", LocalDate.parse("24-05-2003"), BigDecimal.valueOf(1606.85), "Eletricista"));
         listaFuncionarios.add(new Funcionario("Helena", LocalDate.parse("02-09-1996"), BigDecimal.valueOf(2799.83), "Gerente"));
+
+        //remove o funcionario 'joao'
+        listaFuncionarios.removeIf(f -> f.getNome().equals("Joao"));
     }
 }
