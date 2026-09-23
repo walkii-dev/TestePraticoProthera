@@ -1,8 +1,6 @@
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Principal {
@@ -29,7 +27,7 @@ public class Principal {
 
         //aumento de 10% no salario de todos
         listaFuncionarios.forEach(f -> f.setSalario(
-                f.getSalario().add(f.getSalario().multiply(new BigDecimal(0.1)))));
+                f.getSalario().add(f.getSalario().multiply(new BigDecimal("0.1")))));
 
         System.out.println("Lista de Funcionários pós-reajuste:");
         listaFuncionarios.forEach(System.out::println);
@@ -50,6 +48,12 @@ public class Principal {
                         f.getDataNascimento().getMonthValue() == 12)
                 .forEach(System.out::println);
 
+        // imprimindo o funcionario mais velho
+        Optional<Funcionario> funcionarioMaisVelho = listaFuncionarios
+                .stream().min(Comparator.comparing(Pessoa::getDataNascimento));
+        int idade = LocalDate.now().compareTo(funcionarioMaisVelho.get().getDataNascimento());
 
+        System.out.println("o funcionario(a) mais velho(a) é o(a) "+
+                funcionarioMaisVelho.get().getNome()+", com "+idade+" anos.");
     }
 }
