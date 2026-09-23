@@ -2,6 +2,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Principal {
     public static void main(String[] args) {
@@ -31,6 +33,13 @@ public class Principal {
 
         System.out.println("Lista de Funcionários pós-reajuste:");
         listaFuncionarios.forEach(System.out::println);
+
+        //agrupando funcionarios por função
+        Map<String,List<Funcionario>> funcionariosPorFuncao = listaFuncionarios
+                .stream()
+                .collect(Collectors.groupingBy(Funcionario::getFuncao));
+
+
 
     }
 }
