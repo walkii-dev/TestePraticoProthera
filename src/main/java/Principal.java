@@ -39,7 +39,8 @@ public class Principal {
                 .stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
-
+        // imprimindo lista de funcionarios agrupados
+        System.out.println(funcionariosPorFuncao);
 
     }
 }
