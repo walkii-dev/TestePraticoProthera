@@ -42,5 +42,14 @@ public class Principal {
         // imprimindo lista de funcionarios agrupados
         System.out.println(funcionariosPorFuncao);
 
+        // imprimindo funcionarios que facam aniversario no mes 10 e 12.
+        listaFuncionarios.stream()
+                .distinct()
+                .filter(f ->
+                        f.getDataNascimento().getMonthValue() == 10 ||
+                        f.getDataNascimento().getMonthValue() == 12)
+                .forEach(System.out::println);
+
+
     }
 }
